@@ -17,13 +17,6 @@ def base_addr():
 
 @app.route('/backlight', methods = 'POST', 'GET')
 def backlight_command():
-    #mode = request.args.get('mode')
-    #mode = 0
-    #if mode == None:
-    #    return 'Null error'
-    #else:
-        #print "setting state with arg", mode
-    #    set_state(mode.strip())
     return 'Backlight set'
 
 def start_server():

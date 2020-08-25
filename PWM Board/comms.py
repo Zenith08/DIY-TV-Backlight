@@ -59,15 +59,15 @@ class Side:
 		
 	def __init__(self, r, g, b, w, ww, o):
 		self.red = r
-		self.red_val = RampingNum(config_pwm(r))
+		self.red_val = RampingNum(self.config_pwm(r))
 		self.green = g
-		self.green_val = RampingNum(config_pwm(g))
+		self.green_val = RampingNum(self.config_pwm(g))
 		self.blue = b
-		self.blue_val = RampingNum(config_pwm(b))
+		self.blue_val = RampingNum(self.config_pwm(b))
 		self.white = w
-		self.white_val = RampingNum(config_pwm(w))
+		self.white_val = RampingNum(self.config_pwm(w))
 		self.wwhite = ww
-		self.wwhite_val = RampingNum(config_pwm(ww))
+		self.wwhite_val = RampingNum(self.config_pwm(ww))
 		self.on = o
 		config_on(o)
 	
@@ -89,7 +89,7 @@ class Side:
 		self.blue_val.terminate()
 		self.white_val.terminate()
 		self.wwhite_val.terminate()
-		GPIO.output(on, GPIO.LOW)
+		GPIO.output(self.on, GPIO.LOW)
 		time.sleep(0.21)
 
 global left = None
