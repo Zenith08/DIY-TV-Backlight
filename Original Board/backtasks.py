@@ -86,6 +86,39 @@ class BackgroundChanging(BackgroundTask):
         else:
             comms.pins_only([])
 
+class BackgroundChristmas(BackgroundTask):
+    def __init__(self):
+        BackgroundTask.__init__(self)
+        self.time_left = 1
+        self.colour = 0
+        
+    def do_async_task(self):
+        #print("Start Rainbow")
+        while self._running:
+            #print("Begin top loop")
+            self.time_left = random.randint(4*60+30, 5*60)
+            self.colour = random.randint(0, 3)
+            #print("Set time to ", self.time_left, "and colour", self.colour)
+            self.apply_colour()
+            while self._running and self.time_left > 0:
+                #print("Wait loop", self.time_left)
+                time.sleep(1)
+                self.time_left -= 1
+    
+    def apply_colour(self):
+        if self.colour == 0:
+            comms.pins_only(["red"])
+        elif self.colour == 1:
+            comms.pins_only(["green"])
+        elif self.colour == 2:
+            comms.set_channel(comms.left, True, False, False)
+            comms.set_channel(comms.right, False, True, False)
+        elif self.colour == 3:
+            comms.set_channel(comms.left, False, True, False)
+            comms.set_channel(comms.right, True, False, False)
+        else:
+            comms.pins_only([])
+
 ##Module Stuff ----------------------
 global currentTask
 currentTask = None
@@ -102,6 +135,8 @@ def start_task(mode):
         currentTask = BackgroundSiren()
     elif mode == "rainbow":
         currentTask = BackgroundChanging()
+    elif mode == "christmas":
+        currentTask = BackgroundChristmas()
     currentThread = Thread(target = currentTask.run)
     currentThread.start()
 
