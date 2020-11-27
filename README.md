@@ -9,9 +9,10 @@ The specific LED strips we used had one +12V pin, and multiple ground pins. To w
 The downside to this approach was that we could only turn each light on or off, limiting us to 8 different colours.
 ## The Mofet Board
 `//TODO - Add image of  working board`
+
 In an attempt to solve the limited colours available to us in the original circuitry, we designed and built a second control board using Mofets instead of relays. Theoretically, this would allow the Raspberry Pi to use PWM control to dim the brightness of each lighting channel allowing for significantly more colours.
-Unfortunatly, while we were setting up this control board, an electrical short irreperably damaged our Raspberry Pi.
-__A replacement is on order and pictures will be added once the system is again working__
+Unfortunatly, while we were setting up this control board, an electrical short irreperably damaged our Raspberry Pi. Work is still being done on upgrading this new circuit board to work properly with new hardware.
+
 
 ## The System in Action
 ![The Legend of Zelda: Breath of the Wild](/docs/zelda-green.jpg)
