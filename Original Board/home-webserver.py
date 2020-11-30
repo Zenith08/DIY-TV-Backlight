@@ -26,7 +26,7 @@ def set_state(mode):
         comms.pins_only(["red", "green"])
     elif mode == "warm" or mode == "on":
         comms.pins_only(["wwhite"])
-    elif mode == "train" or mode == "siren" or mode == "rainbow":
+    elif mode == "train" or mode == "siren" or mode == "rainbow" or mode=="christmas" or mode=="Christmas":
         tasks.start_task(mode)
     else:
         tasks.stop_task()
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     comms.pins_only(["blue"])
     time.sleep(1)
     comms.pins_only([])
-    app.run(debug=False, port=8080, host='0.0.0.0', ssl_context='adhoc')
+    app.run(debug=False, port=8080, host='0.0.0.0')
     print ("cleanup")
     tasks.stop_task()
     comms.cleanup()
