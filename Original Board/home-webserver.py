@@ -56,7 +56,7 @@ if __name__ == '__main__':
     comms.pins_only(["blue"])
     time.sleep(1)
     comms.pins_only([])
-    app.run(debug=False, port=8080, host='0.0.0.0')
+    app.run(debug=False, port=8080, host='0.0.0.0', ssl_context='adhoc')
     print ("cleanup")
     tasks.stop_task()
     comms.cleanup()
