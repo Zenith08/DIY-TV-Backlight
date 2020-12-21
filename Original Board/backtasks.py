@@ -135,7 +135,7 @@ def start_task(mode):
         currentTask = BackgroundSiren()
     elif mode == "rainbow":
         currentTask = BackgroundChanging()
-    elif mode == "christmas":
+    elif mode == "christmas" or mode == "Christmas":
         currentTask = BackgroundChristmas()
     currentThread = Thread(target = currentTask.run)
     currentThread.start()
