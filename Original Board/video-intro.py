@@ -11,8 +11,8 @@ if __name__ == '__main__':
     comms.pins_only(["red"]) # Red Nether 16:05
     time.sleep(4.66) # 4:40
     comms.pins_only(["red", "blue"]) # Purple Movent 20:45
-    #time.sleep()
-    #comms.pins_only([]) # Purple Spaceship
+    time.sleep(3.25) # 3:15
+    comms.pins_only(["blue"]) # Blue Spaceship 24:00
     time.sleep(7.17) # 7:10
     comms.pins_only(["wwhite"]) # White Sun 27:55
     time.sleep(2.75) # 2:45
